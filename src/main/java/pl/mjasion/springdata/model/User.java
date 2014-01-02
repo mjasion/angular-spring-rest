@@ -14,7 +14,7 @@ public class User extends AbstractEntity {
     private String firstName;
     private String lastName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     private List<Post> posts;
 
     public String getFirstName() {
