@@ -5,6 +5,7 @@ import pl.mjasion.springdata.model.entity.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  * @author Marcin Jasion <marcin.jasion@gmail.com>
@@ -18,6 +19,9 @@ public class Post extends AbstractEntity {
     private String text;
 
     private DateTime dateAdded = DateTime.now();
+
+    @ManyToOne
+    private User author;
 
     public String getTitle() {
         return title;
@@ -41,5 +45,13 @@ public class Post extends AbstractEntity {
 
     public void setDateAdded(DateTime dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }
