@@ -3,6 +3,8 @@ package pl.mjasion.springdata.model;
 import pl.mjasion.springdata.model.entity.AbstractEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 /**
  * @author Marcin Jasion <marcin.jasion@gmail.com>
@@ -11,6 +13,9 @@ import javax.persistence.Entity;
 public class User extends AbstractEntity {
     private String firstName;
     private String lastName;
+
+    @OneToMany
+    private List<Post> posts;
 
     public String getFirstName() {
         return firstName;
@@ -26,5 +31,13 @@ public class User extends AbstractEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }
